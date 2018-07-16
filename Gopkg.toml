@@ -32,3 +32,7 @@
 [[override]]
   name = "github.com/docker/libnetwork"
   revision = "0d7e26e19043113ac982fd79fff4ca420b671b59"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/google/gofuzz"

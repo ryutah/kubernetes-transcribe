@@ -66,6 +66,12 @@
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/google/gofuzz"
+  packages = ["."]
+  revision = "24818f796faf91cd76ec7bddd72458fbced7a6c1"
+
+[[projects]]
   name = "github.com/opencontainers/go-digest"
   packages = ["."]
   revision = "279bed98673dd5bef374d3b6e4b09e2af76183bf"
@@ -107,9 +113,15 @@
   packages = ["unix","windows"]
   revision = "1b2967e3c290b7c545b3db0deeda16e9be4f98a2"
 
+[[projects]]
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
+  version = "v2.2.1"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b4f6fd9a8fac3ab0f0e3a5bd9b8bbf5d419b8f4029e021552c6ba60ff8f84aa0"
+  inputs-digest = "24fe65d73f561d756e8838cb6fb2c3c35e4b51d72a87053d34592955648458d9"
   solver-name = "gps-cdcl"
   solver-version = 1
