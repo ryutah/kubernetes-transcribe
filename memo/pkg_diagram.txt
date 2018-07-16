@@ -16,6 +16,8 @@ namespace pkg {
     class runtime << (P,orchid) >>
     class service << (P,orchid) >>
     class tools << (P,orchid) >>
+    class labels << (P,orchid) >>
+    class watch << (P,orchid) >>
 }
 
 namespace pkg.version {
@@ -24,6 +26,7 @@ namespace pkg.version {
 
 namespace pkg.api {
     class latest << (P, orchid) >>
+    class errors << (P, orchid) >>
     class v1beta1  << (P, orchid) >>
     class v1beta2  << (P, orchid) >>
 }
@@ -58,5 +61,13 @@ pkg.master ..> pkg.service
 pkg.master ..> pkg.tools
 pkg.master ..> pkg.util
 pkg.master ..> pkg.registry
+
+pkg.labels ..> pkg.util
+
+pkg.watch ..> pkg.runtime
+
+pkg.apiserver ..> pkg.runtime
+pkg.apiserver ..> pkg.watch
+pkg.apiserver ..> pkg.labels
 
 @enduml
