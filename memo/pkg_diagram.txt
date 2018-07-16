@@ -1,0 +1,62 @@
+@startuml
+
+title Kubernetes(v0.3) diagram
+
+namespace cmd {
+    class apiserver << (P,orchid) >>
+}
+
+namespace pkg {
+    class apiserver << (P,orchid) >>
+    class master << (P,orchid) >>
+    class capabilities << (P,orchid) >>
+    class client << (P,orchid) >>
+    class cloudprovider << (P,orchid) >>
+    class util << (P,orchid) >>
+    class runtime << (P,orchid) >>
+    class service << (P,orchid) >>
+    class tools << (P,orchid) >>
+}
+
+namespace pkg.version {
+    class verflag << (P,orchid) >>
+}
+
+namespace pkg.api {
+    class latest << (P, orchid) >>
+    class v1beta1  << (P, orchid) >>
+    class v1beta2  << (P, orchid) >>
+}
+
+namespace pkg.registry {
+    class binding << (P, orchid) >>
+    class controller  << (P, orchid) >>
+    class endpoint  << (P, orchid) >>
+    class etcd  << (P, orchid) >>
+    class minion  << (P, orchid) >>
+    class pod  << (P, orchid) >>
+    class service  << (P, orchid) >>
+}
+
+
+cmd.apiserver ..> pkg.apiserver
+cmd.apiserver ..> pkg.capabilities
+cmd.apiserver ..> pkg.client
+cmd.apiserver ..> pkg.cloudprovider
+cmd.apiserver ..> pkg.master
+cmd.apiserver ..> pkg.util
+cmd.apiserver ..> pkg.version.verflag
+
+pkg.master ..> pkg.api.latest
+pkg.master ..> pkg.api.v1beta1
+pkg.master ..> pkg.api.v1beta2
+pkg.master ..> pkg.apiserver
+pkg.master ..> pkg.client
+pkg.master ..> pkg.cloudprovider
+pkg.master ..> pkg.runtime
+pkg.master ..> pkg.service
+pkg.master ..> pkg.tools
+pkg.master ..> pkg.util
+pkg.master ..> pkg.registry
+
+@enduml
