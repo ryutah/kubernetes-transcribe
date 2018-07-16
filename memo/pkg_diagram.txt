@@ -18,6 +18,7 @@ namespace pkg {
     class tools << (P,orchid) >>
     class labels << (P,orchid) >>
     class watch << (P,orchid) >>
+    class conversion << (P,orchid) >>
 }
 
 namespace pkg.version {
@@ -69,5 +70,7 @@ pkg.watch ..> pkg.runtime
 pkg.apiserver ..> pkg.runtime
 pkg.apiserver ..> pkg.watch
 pkg.apiserver ..> pkg.labels
+
+pkg.runtime ..> pkg.conversion
 
 @enduml
