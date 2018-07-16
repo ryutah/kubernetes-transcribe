@@ -443,6 +443,13 @@ type StatusDetails struct {
 	Causes []StatusCause `json:"causes,omitempty" yaml:"causes,omitempty"`
 }
 
+// Values of Status.Status
+const (
+	StatusSuccess = "success"
+	StatusFailure = "failure"
+	StatusWorking = "working"
+)
+
 // StatusReason is an enumeration of possible failure causes.  Each StatusReason
 // must map to a single HTTP status code, but multiple reasons may map
 // to the same HTTP status code.
