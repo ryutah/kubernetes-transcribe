@@ -10,16 +10,6 @@ import (
 	"github.com/ryutah/kubernetes-transcribe/pkg/tools"
 )
 
-type Master struct{}
-
-func (m *Master) API_v1beta1() (map[string]apiserver.RESTStorage, runtime.Codec) {
-	panic("Not implement yet")
-}
-
-func (m *Master) API_v1beta2() (map[string]apiserver.RESTStorage, runtime.Codec) {
-	panic("Not implement yet")
-}
-
 type Config struct {
 	Client             *client.Client
 	Cloud              cloudprovider.Interface
@@ -29,6 +19,16 @@ type Config struct {
 	MinionCacheTTL     time.Duration
 	MinionRegexp       string
 	PodInfoGetter      client.PodInfoGetter
+}
+
+type Master struct{}
+
+func (m *Master) API_v1beta1() (map[string]apiserver.RESTStorage, runtime.Codec) {
+	panic("Not implement yet")
+}
+
+func (m *Master) API_v1beta2() (map[string]apiserver.RESTStorage, runtime.Codec) {
+	panic("Not implement yet")
 }
 
 func New(c *Config) *Master {

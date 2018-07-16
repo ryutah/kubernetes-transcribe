@@ -7,8 +7,6 @@ import (
 	"github.com/ryutah/kubernetes-transcribe/pkg/runtime"
 )
 
-type RESTStorage interface{}
-
 type APIGroup struct{}
 
 func (g *APIGroup) InstallREST(m mux, paths ...string) {
