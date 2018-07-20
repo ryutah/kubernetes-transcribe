@@ -66,6 +66,7 @@ pkg.master ..> pkg.registry
 pkg.labels ..> pkg.util
 
 pkg.watch ..> pkg.runtime
+pkg.watch ..> pkg.util
 
 pkg.apiserver ..> pkg.runtime
 pkg.apiserver ..> pkg.watch
@@ -74,3 +75,4 @@ pkg.apiserver ..> pkg.labels
 pkg.runtime ..> pkg.conversion
 
 @enduml
+
