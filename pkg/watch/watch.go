@@ -43,6 +43,12 @@ type FakeWatcher struct {
 	sync.Mutex
 }
 
+func NewFake() *FakeWatcher {
+	return &FakeWatcher{
+		result: make(chan Event),
+	}
+}
+
 func (f *FakeWatcher) Stop() {
 	f.Lock()
 	defer f.Unlock()

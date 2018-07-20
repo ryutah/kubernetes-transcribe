@@ -3,7 +3,33 @@ package util
 import (
 	"encoding/json"
 	"fmt"
+	"runtime"
+
+	"github.com/golang/glog"
 )
+
+// ReallyCrash is for testing, bypass HandleCrash
+var ReallyCrash bool
+
+// HandleCrash simply catches a crash and logs an error. Meant to be called via defer.
+func HandleCrash() {
+	if ReallyCrash {
+		return
+	}
+
+	r := recover()
+	if r != nil {
+		callers := ""
+		for i := 0; ; i++ {
+			_, file, line, ok := runtime.Caller(i)
+			if !ok {
+				break
+			}
+			callers = callers + fmt.Sprintf("%v:%v\n", file, line)
+		}
+		glog.Infof("Recovered from panic: %#v (%v)\n%v", r, r, callers)
+	}
+}
 
 // IntstrKind represents the stored type IntOrString.
 type IntstrKind int
