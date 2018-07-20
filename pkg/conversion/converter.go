@@ -205,6 +205,7 @@ func (c *Converter) Convert(src, dest interface{}, flags FieldMatchingFlags, met
 		meta:      meta,
 	}
 	s.push()
+
 	return c.convert(sv, dv, s)
 }
 
@@ -248,6 +249,7 @@ func (c *Converter) convert(sv, dv reflect.Value, scope *scope) error {
 		if scope.flags.IsSet(SourceToDest) {
 			listType = st
 		}
+		// log.Printf("DV: %v, SV: %v", dt.Name(), st.Name())
 		for i := 0; i < listType.NumField(); i++ {
 			f := listType.Field(i)
 			df := dv.FieldByName(f.Name)
@@ -273,6 +275,7 @@ func (c *Converter) convert(sv, dv reflect.Value, scope *scope) error {
 				}
 				continue
 			}
+			// log.Printf("Next sf: %v", f.Name)
 			if err := c.convert(sf, df, scope); err != nil {
 				return err
 			}

@@ -1,6 +1,8 @@
 package runtime
 
-import yaml "gopkg.in/yaml.v2"
+import (
+	yaml "gopkg.in/yaml.v2"
+)
 
 func (re *RawExtension) UnmarshalJSON(in []byte) error {
 	re.RawJSON = in

@@ -1,6 +1,8 @@
 package conversion
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 
 	"gopkg.in/yaml.v2"
@@ -25,7 +27,12 @@ func (s *Scheme) Decode(data []byte) (interface{}, error) {
 	}
 	// yaml is a superset of json, so we use it to decode here. That way,
 	// we understand both.
-	err = yaml.Unmarshal(data, obj)
+	// XXX(ME): Customize because yaml not support json format now.
+	if bytes.HasPrefix(data, []byte("{")) {
+		err = json.Unmarshal(data, obj)
+	} else {
+		err = yaml.Unmarshal(data, obj)
+	}
 	if err != nil {
 		return nil, err
 	}

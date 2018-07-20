@@ -1,6 +1,7 @@
 package runtime
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"reflect"
@@ -46,6 +47,7 @@ func (sc *Scheme) embeddedObjectToRawExtension(in *EmbeddedObject, out *RawExten
 		return nil
 	}
 
+	// figure out the type and kind of the output object.
 	_, outVersion, scheme := sc.fromScope(s)
 	_, kind, err := scheme.raw.ObjectVersionAndKind(in.Object)
 	if err != nil {
@@ -271,7 +273,12 @@ func VersionAndKind(data []byte) (version, kind string, err error) {
 	}{}
 	// yaml is a superset of json, so we use it to decode here. That way,
 	// we understand both.
-	err = yaml.Unmarshal(data, &findKind)
+	// XXX(ME): Customize because yaml not support json format now.
+	if bytes.HasPrefix(data, []byte("{")) {
+		err = json.Unmarshal(data, &findKind)
+	} else {
+		err = yaml.Unmarshal(data, &findKind)
+	}
 	if err != nil {
 		return "", "", fmt.Errorf("couldn't get version/kind: %v", err)
 	}
