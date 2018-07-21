@@ -74,5 +74,9 @@ pkg.apiserver ..> pkg.labels
 
 pkg.runtime ..> pkg.conversion
 
+pkg.tools ..> pkg.runtime
+pkg.tools ..> pkg.util
+pkg.tools ..> pkg.watch
+
 @enduml
 
