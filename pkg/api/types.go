@@ -362,7 +362,7 @@ type Service struct {
 
 	// ContainerPort is the name of the port on the container to direct traffic to.
 	// Optional, if unspecified use the first port on the container.
-	ContanerPort util.IntOrString `json:"contaner_port" yaml:"contaner_port"`
+	ContainerPort util.IntOrString `json:"contaner_port" yaml:"contaner_port"`
 }
 
 func (*Service) IsAnAPIObject() {}
