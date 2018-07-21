@@ -23,6 +23,20 @@ func (c *codecWrapper) Encode(obj Object) ([]byte, error) {
 	return nil, nil
 }
 
+// CodecFor returns a Codec that invokes Encode with the provided version.
+func CodecFor(scheme *Scheme, version string) Codec {
+	return &codecWrapper{scheme, version}
+}
+
+// EncodeOrDie is a version of Encode which will panic instead of returning an error. For tests.
+func EncodeOrDie(codec Codec, obj Object) string {
+	bytes, err := codec.Encode(obj)
+	if err != nil {
+		panic(err)
+	}
+	return string(bytes)
+}
+
 type Scheme struct {
 	raw *conversion.Scheme
 }
