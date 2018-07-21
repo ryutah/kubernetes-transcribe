@@ -8,8 +8,6 @@ type (
 		Port   uint
 	}
 	AuthInfo struct{}
-
-	Client struct{}
 )
 
 type PodInfoGetter interface{}
