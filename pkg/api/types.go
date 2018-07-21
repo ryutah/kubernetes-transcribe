@@ -363,6 +363,8 @@ type Service struct {
 	ContanerPort util.IntOrString `json:"contaner_port" yaml:"contaner_port"`
 }
 
+func (*Service) IsAnAPIObject() {}
+
 // Endpoints is a collection of a endpoints that implement the actual service, for example:
 // Name: "mysql", Endpoints: ["10.10.1.1:1909", "10.10.2.2:8834"]
 type Endpoints struct {
@@ -370,11 +372,15 @@ type Endpoints struct {
 	Endpoints []string `json:"endpoints,omitempty" yaml:"endpoints,omitempty"`
 }
 
+func (*Endpoints) IsAnAPIObject() {}
+
 // EndpointsList is a list of endpoints.
 type EndpointsList struct {
 	JSONBase `json:",inline" yaml:",inline"`
 	Items    []Endpoints `json:"items,omitempty" yaml:"items,omitempty"`
 }
+
+func (*EndpointsList) IsAnAPIObject() {}
 
 // Minion is a worker node in Kubernetes.
 // The name of the minion according to etcd is in JSONBase.ID.
@@ -391,6 +397,8 @@ type MinionList struct {
 	JSONBase `json:",inline" yaml:",inline"`
 	Items    []Minion `json:"items,omitempty" yaml:"items,omitempty"`
 }
+
+func (*MinionList) IsAnAPIObject() {}
 
 // Binding is written by a scheduler to cause a pod to be bound to a host.
 type Binding struct {
