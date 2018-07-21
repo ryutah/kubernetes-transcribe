@@ -295,8 +295,10 @@ func (*PodList) IsAnAPIObject() {}
 
 // Pod is a collection of containers, used as either input (create, update) or as ouput (list, get).
 type Pod struct {
-	JSONBase `json:",inline" yaml:",inline"`
-	Labels   map[string]string
+	JSONBase     `json:",inline" yaml:",inline"`
+	Labels       map[string]string
+	DesiredState PodState `json:"desiredState,omitempty" yaml:"desiredState,omitempty"`
+	CurrentState PodState `json:"currentState,omitempty" yaml:"currentState,omitempty"`
 }
 
 func (*Pod) IsAnAPIObject() {}
