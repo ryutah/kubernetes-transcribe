@@ -37,7 +37,14 @@
   branch = "master"
   name = "github.com/google/gofuzz"
 
+[[constraint]]
+  name = "github.com/google/cadvisor"
+
 # TODO This library is deprecated
 [[constraint]]
   name = "github.com/coreos/go-etcd"
   version = "2.0.0"
+
+[[override]]
+ name = "github.com/x/y"
+ version = "2.4.0"

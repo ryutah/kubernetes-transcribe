@@ -78,5 +78,17 @@ pkg.tools ..> pkg.runtime
 pkg.tools ..> pkg.util
 pkg.tools ..> pkg.watch
 
-@enduml
+pkg.service ..> pkg.api
+pkg.service ..> pkg.client
+pkg.service ..> pkg.labels
+pkg.service ..> pkg.registry.service
+pkg.service ..> pkg.util
 
+pkg.client ..> pkg.api
+pkg.client ..> pkg.api.latest
+pkg.client ..> pkg.labels
+pkg.client ..> pkg.runtime
+pkg.client ..> pkg.version
+pkg.client ..> pkg.watch
+
+@enduml

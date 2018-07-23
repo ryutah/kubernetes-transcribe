@@ -72,6 +72,12 @@
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
+  name = "github.com/google/cadvisor"
+  packages = ["info"]
+  revision = "ef7dddf4385dc5d0c42b872bdcdb5a4ee9170eb1"
+  version = "0.10.1"
+
+[[projects]]
   branch = "master"
   name = "github.com/google/gofuzz"
   packages = ["."]
@@ -128,6 +134,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9ff18cf09db943a400fd8e7e29956ec31254b342edc159b6d56730a1a0001b34"
+  inputs-digest = "4d482e4da9ee9d642e2d72908e14720c60ed75b71e01bba12b2dec5f8308af78"
   solver-name = "gps-cdcl"
   solver-version = 1
