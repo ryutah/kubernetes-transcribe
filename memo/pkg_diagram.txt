@@ -42,6 +42,13 @@ namespace pkg.registry {
     class service  << (P, orchid) >>
 }
 
+namespace pkg.util {
+    class wait  << (P, orchid) >>
+}
+
+namespace pkg.client {
+    class watch  << (P, orchid) >>
+}
 
 cmd.apiserver ..> pkg.apiserver
 cmd.apiserver ..> pkg.capabilities
@@ -90,5 +97,7 @@ pkg.client ..> pkg.labels
 pkg.client ..> pkg.runtime
 pkg.client ..> pkg.version
 pkg.client ..> pkg.watch
+pkg.client ..> pkg.util.wait
+pkg.client ..> pkg.client.watch
 
 @enduml
