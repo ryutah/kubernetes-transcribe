@@ -109,4 +109,13 @@ pkg.client.cache ..> pkg.runtime
 pkg.client.cache ..> pkg.util
 pkg.client.cache ..> pkg.watch
 
+pkg.api ..> pkg.runtime
+pkg.api ..> pkg.util
+pkg.api ..> pkg.watch
+
+pkg.api.v1beta1 ..> pkg.api
+pkg.api.v1beta1 ..> pkg.conversion
+pkg.api.v1beta1 ..> pkg.runtime
+pkg.api.v1beta1 ..> pkg.util
+
 @enduml
