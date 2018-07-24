@@ -47,6 +47,7 @@ namespace pkg.util {
 }
 
 namespace pkg.client {
+    class cache  << (P, orchid) >>
     class watch  << (P, orchid) >>
 }
 
@@ -99,5 +100,13 @@ pkg.client ..> pkg.version
 pkg.client ..> pkg.watch
 pkg.client ..> pkg.util.wait
 pkg.client ..> pkg.client.watch
+
+pkg.client.watch ..> pkg.api
+pkg.client.watch ..> pkg.runtime
+pkg.client.watch ..> pkg.watch
+
+pkg.client.cache ..> pkg.runtime
+pkg.client.cache ..> pkg.util
+pkg.client.cache ..> pkg.watch
 
 @enduml

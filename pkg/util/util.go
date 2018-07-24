@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"runtime"
+	"time"
 
 	"github.com/golang/glog"
 )
@@ -28,6 +29,17 @@ func HandleCrash() {
 			callers = callers + fmt.Sprintf("%v:%v\n", file, line)
 		}
 		glog.Infof("Recovered from panic: %#v (%v)\n%v", r, r, callers)
+	}
+}
+
+// Forever loops forever running f ever d. Catches any panics, and keeps going.
+func Forever(f func(), period time.Duration) {
+	for {
+		func() {
+			defer HandleCrash()
+			f()
+		}()
+		time.Sleep(period)
 	}
 }
 
