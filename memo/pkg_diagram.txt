@@ -127,4 +127,7 @@ pkg.api.v1beta1 ..> pkg.conversion
 pkg.api.v1beta1 ..> pkg.runtime
 pkg.api.v1beta1 ..> pkg.util
 
+pkg.health ..> pkg.api
+pkg.health ..> pkg.util
+
 @enduml
