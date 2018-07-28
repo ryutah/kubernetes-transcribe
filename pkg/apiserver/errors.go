@@ -42,3 +42,9 @@ func notFound(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 	fmt.Fprintf(w, "Not found: %#v", r.RequestURI)
 }
+
+// badGatewayError renders a simple bad gateway error.
+func badGatewayError(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusBadRequest)
+	fmt.Fprintf(w, "Bad Gateway: %#v", r.RequestURI)
+}

@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"github.com/ryutah/kubernetes-transcribe/pkg/health"
+	"github.com/ryutah/kubernetes-transcribe/pkg/healthz"
 	"github.com/ryutah/kubernetes-transcribe/pkg/runtime"
 	"github.com/ryutah/kubernetes-transcribe/pkg/version"
 )
